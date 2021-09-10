@@ -65,7 +65,6 @@ public class EmployeeAction extends ActionBase {
         forward(ForwardConst.FW_EMP_INDEX);
 
     }
-
     /**
      * 新規登録画面を表示する
      * @throws ServletException
@@ -79,7 +78,6 @@ public class EmployeeAction extends ActionBase {
         //新規登録画面を表示
         forward(ForwardConst.FW_EMP_NEW);
     }
-
     /**
      * 新規登録を行う
      * @throws ServletException
@@ -129,7 +127,6 @@ public class EmployeeAction extends ActionBase {
 
         }
     }
-
     /**
      * 詳細画面を表示する
      * @throws ServletException
@@ -152,7 +149,6 @@ public class EmployeeAction extends ActionBase {
         //詳細画面を表示
         forward(ForwardConst.FW_EMP_SHOW);
     }
-
     /**
      * 編集画面を表示する
      * @throws ServletException
@@ -177,7 +173,6 @@ public class EmployeeAction extends ActionBase {
         forward(ForwardConst.FW_EMP_EDIT);
 
     }
-
     /**
      * 更新を行う
      * @throws ServletException
@@ -224,7 +219,6 @@ public class EmployeeAction extends ActionBase {
             }
         }
     }
-
     /**
      * 論理削除を行う
      * @throws ServletException
@@ -245,28 +239,4 @@ public class EmployeeAction extends ActionBase {
             redirect(ForwardConst.ACT_EMP, ForwardConst.CMD_INDEX);
         }
     }
-
-    /**
-     * ログイン中の従業員が管理者かどうかチェックし、管理者でなければエラー画面を表示
-     * true:管理者
-     * false: 管理者でない
-     * @throws ServletException
-     * @throws IOException
-     */
-    private boolean checkAdmin() throws ServletException, IOException {
-
-        //セッションからログイン中の従業員情報を取得
-        EmployeeView ev = (EmployeeView) getSessionScope(AttributeConst.LOGIN_EMP);
-
-        //管理者でなければエラー画面を表示
-        if (ev.getAdminFlag() != AttributeConst.ROLE_ADMIN.getIntegerValue()) {
-
-            forward(ForwardConst.FW_ERR_UNKNOWN);
-            return false;
-        } else {
-            return true;
-        }
-
-    }
-
 }
