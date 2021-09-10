@@ -14,7 +14,6 @@ import constants.PropertyConst;
 import services.EmployeeService;
 
 /**
- *
  * 従業員に関わる処理を行うActionクラス
  *
  */
@@ -23,7 +22,7 @@ public class EmployeeAction extends ActionBase {
     private EmployeeService service;
 
     /**
-     * メッソドを実行する
+     * メソッドを実行する
      */
     @Override
     public void process() throws ServletException, IOException {
@@ -34,14 +33,12 @@ public class EmployeeAction extends ActionBase {
         invoke();
 
         service.close();
-
     }
 
     /**
      * 一覧画面を表示する
      * @throws ServletException
      * @throws IOException
-     *
      */
     public void index() throws ServletException, IOException {
 
@@ -68,9 +65,6 @@ public class EmployeeAction extends ActionBase {
         forward(ForwardConst.FW_EMP_INDEX);
 
     }
-
-
-
     /**
      * 新規登録画面を表示する
      * @throws ServletException
@@ -84,7 +78,6 @@ public class EmployeeAction extends ActionBase {
         //新規登録画面を表示
         forward(ForwardConst.FW_EMP_NEW);
     }
-
     /**
      * 新規登録を行う
      * @throws ServletException

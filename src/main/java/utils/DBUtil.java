@@ -17,9 +17,10 @@ public class DBUtil {
 
     //EntityManagerFactoryインスタンスを生成
     private static EntityManagerFactory _getEntityManagerFactory() {
-        if(emf == null) {
+        if (emf == null) {
             emf = Persistence.createEntityManagerFactory(JpaConst.PERSISTENCE_UNIT_NAME);
         }
+
         return emf;
     }
 }

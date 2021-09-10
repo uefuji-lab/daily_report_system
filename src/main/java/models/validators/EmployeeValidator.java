@@ -11,8 +11,8 @@ import services.EmployeeService;
  * 従業員インスタンスに設定されている値のバリデーションを行うクラス
  *
  */
-
 public class EmployeeValidator {
+
     /**
      * 従業員インスタンスの各項目についてバリデーションを行う
      * @param service 呼び出し元Serviceクラスのインスタンス
@@ -21,7 +21,6 @@ public class EmployeeValidator {
      * @param passwordCheckFlag パスワードの入力チェックを実施するかどうか(実施する:true 実施しない:false)
      * @return エラーのリスト
      */
-
     public static List<String> validate(
             EmployeeService service, EmployeeView ev, Boolean codeDuplicateCheckFlag, Boolean passwordCheckFlag) {
         List<String> errors = new ArrayList<String>();
@@ -43,6 +42,7 @@ public class EmployeeValidator {
         if (!passError.equals("")) {
             errors.add(passError);
         }
+
         return errors;
     }
 
@@ -53,19 +53,19 @@ public class EmployeeValidator {
      * @param codeDuplicateCheckFlag 社員番号の重複チェックを実施するかどうか(実施する:true 実施しない:false)
      * @return エラーメッセージ
      */
-
     private static String validateCode(EmployeeService service, String code, Boolean codeDuplicateCheckFlag) {
+
         //入力値がなければエラーメッセージを返却
         if (code == null || code.equals("")) {
             return MessageConst.E_NOEMP_CODE.getMessage();
         }
 
         if (codeDuplicateCheckFlag) {
-            //社員番号の重複チェックを実地
+            //社員番号の重複チェックを実施
 
             long employeesCount = isDuplicateEmployee(service, code);
 
-            //同一社員番号がすでに登録されている場合はエラーメッセージを返却
+            //同一社員番号が既に登録されている場合はエラーメッセージを返却
             if (employeesCount > 0) {
                 return MessageConst.E_EMP_CODE_EXIST.getMessage();
             }
@@ -73,7 +73,6 @@ public class EmployeeValidator {
 
         //エラーがない場合は空文字を返却
         return "";
-
     }
 
     /**

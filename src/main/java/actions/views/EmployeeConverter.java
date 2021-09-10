@@ -10,7 +10,6 @@ import models.Employee;
 /**
  * 従業員データのDTOモデル⇔Viewモデルの変換を行うクラス
  *
- *
  */
 public class EmployeeConverter {
 
@@ -47,7 +46,7 @@ public class EmployeeConverter {
      */
     public static EmployeeView toView(Employee e) {
 
-        if (e == null) {
+        if(e == null) {
             return null;
         }
 
@@ -75,13 +74,13 @@ public class EmployeeConverter {
      * @param list DTOモデルのリスト
      * @return Viewモデルのリスト
      */
-
     public static List<EmployeeView> toViewList(List<Employee> list) {
         List<EmployeeView> evs = new ArrayList<>();
 
         for (Employee e : list) {
             evs.add(toView(e));
         }
+
         return evs;
     }
 
@@ -101,4 +100,5 @@ public class EmployeeConverter {
         e.setDeleteFlag(ev.getDeleteFlag());
 
     }
+
 }

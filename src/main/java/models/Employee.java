@@ -21,7 +21,6 @@ import lombok.Setter;
  * 従業員データのDTOモデル
  *
  */
-
 @Table(name = JpaConst.TABLE_EMP)
 @NamedQueries({
     @NamedQuery(
